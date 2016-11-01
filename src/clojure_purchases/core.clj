@@ -38,13 +38,56 @@
                             (or (nil? category)
                                 (= category (get purchase "category"))))
                     purchases)]
+    
+    
+    [:table {:width 800 :border 1}
+     [:tr
+      [:td
+       [:form {:action "/category" :method "get"}
+        [:input {:type "hidden" :value "Alcohol"}]
+        [:button {:type "submit" :value "Alcohol"}]]]
+      [:td
+       [:form {:action "/category" :method "get"}
+        [:input {:type "hidden" :value "Food"}]
+        [:button {:type "submit" :value "Food"}]]]
+      [:td
+       [:form {:action "/category" :method "get"}
+        [:input {:type "hidden" :value "Furniture"}]
+        [:button {:type "submit" :value "Furniture"}]]]
+      [:td
+       [:form {:action "/category" :method "get"}
+        [:input {:type "hidden" :value "Jewelry"}]
+        [:button {:type "submit" :value "Jewelry"}]]]
+      [:td
+       [:form {:action "/category" :method "get"}
+        [:input {:type "hidden" :value "Shoes"}]
+        [:button {:type "submit" :value "Shoes"}]]]
+      [:td
+       [:form {:action "/category" :method "get"}
+        [:input {:type "hidden" :value "Toiletries"}]
+        [:button {:type "submit" :value "Toiletries"}]]]]]
+    
+    
     [:table {:width 800 :border 1}
      [:th "Customer id"]
      [:th "Purchase date"]
      [:th "CC Number"]
      [:th "CVV Number"]
      [:th "Purchase Category"]
-     (map fn [purchase] purchases
+     [:tr
+      [:td
+       [:a {:href "/:Alcohol"} "Alcohol"]]
+      [:td
+       [:a {:href "/:Food"} "Food"]]
+      [:td
+       [:a {:href "/:Furniture"} "Furniture"]]
+      [:td
+       [:a {:href "/:Jewelry"} "Jewelry"]]
+      [:td
+       [:a {:href "/:Shoes"} "Shoes"]]
+      [:td
+       [:a {:href "/:Toiletries"} "Toiletries"]]]
+     (map (fn [purchase] purchases
              [:tr
               [:td (str
                      (get purchase "customer_id"))]
@@ -55,14 +98,14 @@
               [:td (str
                      (get purchase "cvv"))]
               [:td (str
-                     (get purchase "category"))]]
-             purchases)]))
+                     (get purchase "category"))]])
+       purchases)]))
 
 
 
 (c/defroutes app
   (c/GET "/" []
-    (h/html [:html [:body (purchases-html nil)]]))
+    (h/html [:html [:body [:a {:href "/:category=Furniture"}] (purchases-html nil)]]))
   (c/GET "/:category" [category]
     (h/html [:html [:body (purchases-html category)]])))
 
