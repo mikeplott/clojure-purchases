@@ -38,55 +38,26 @@
                             (or (nil? category)
                                 (= category (get purchase "category"))))
                     purchases)]
-    
-    
+
     [:table {:width 800 :border 1}
+     [:th {:colspan 5}
+       [:a {:href "/Alcohol"} "Alcohol"]
+       " "
+       [:a {:href "/Food"} "Food"]
+       " "
+       [:a {:href "/Furniture"} "Furniture"]
+       " "
+       [:a {:href "/Jewelry"} "Jewelry"]
+       " "
+       [:a {:href "/Shoes"} "Shoes"]
+       " "
+       [:a {:href "/Toiletries"} "Toiletries"]]
      [:tr
-      [:td
-       [:form {:action "/category" :method "get"}
-        [:input {:type "hidden" :value "Alcohol"}]
-        [:button {:type "submit" :value "Alcohol"}]]]
-      [:td
-       [:form {:action "/category" :method "get"}
-        [:input {:type "hidden" :value "Food"}]
-        [:button {:type "submit" :value "Food"}]]]
-      [:td
-       [:form {:action "/category" :method "get"}
-        [:input {:type "hidden" :value "Furniture"}]
-        [:button {:type "submit" :value "Furniture"}]]]
-      [:td
-       [:form {:action "/category" :method "get"}
-        [:input {:type "hidden" :value "Jewelry"}]
-        [:button {:type "submit" :value "Jewelry"}]]]
-      [:td
-       [:form {:action "/category" :method "get"}
-        [:input {:type "hidden" :value "Shoes"}]
-        [:button {:type "submit" :value "Shoes"}]]]
-      [:td
-       [:form {:action "/category" :method "get"}
-        [:input {:type "hidden" :value "Toiletries"}]
-        [:button {:type "submit" :value "Toiletries"}]]]]]
-    
-    
-    [:table {:width 800 :border 1}
-     [:th "Customer id"]
-     [:th "Purchase date"]
-     [:th "CC Number"]
-     [:th "CVV Number"]
-     [:th "Purchase Category"]
-     [:tr
-      [:td
-       [:a {:href "/:Alcohol"} "Alcohol"]]
-      [:td
-       [:a {:href "/:Food"} "Food"]]
-      [:td
-       [:a {:href "/:Furniture"} "Furniture"]]
-      [:td
-       [:a {:href "/:Jewelry"} "Jewelry"]]
-      [:td
-       [:a {:href "/:Shoes"} "Shoes"]]
-      [:td
-       [:a {:href "/:Toiletries"} "Toiletries"]]]
+      [:td "Customer id"]
+      [:td "Purchase date"]
+      [:td "CC Number"]
+      [:td "CVV Number"]
+      [:td "Purchase Category"]] 
      (map (fn [purchase] purchases
              [:tr
               [:td (str
