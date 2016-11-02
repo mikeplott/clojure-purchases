@@ -41,16 +41,18 @@
 
     [:table {:width 800 :border 1}
      [:th {:colspan 5}
+       [:a {:href "/"} "All"]
+       (repeat 10 "&nbsp")
        [:a {:href "/Alcohol"} "Alcohol"]
-       " "
+       (repeat 10 "&nbsp ")
        [:a {:href "/Food"} "Food"]
-       " "
+       (repeat 10 "&nbsp")
        [:a {:href "/Furniture"} "Furniture"]
-       " "
+       (repeat 10 "&nbsp")
        [:a {:href "/Jewelry"} "Jewelry"]
-       " "
+       (repeat 10 "&nbsp")
        [:a {:href "/Shoes"} "Shoes"]
-       " "
+       (repeat 10 "&nbsp")
        [:a {:href "/Toiletries"} "Toiletries"]]
      [:tr
       [:td "Customer id"]
